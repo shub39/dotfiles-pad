@@ -1,0 +1,185 @@
+{
+"hyprland/workspaces": {
+	"active-only": false,
+	"all-outputs": true,
+	"format": "{icon}",
+	"show-special": false,
+	"on-click": "activate",
+	"on-scroll-up": "hyprctl dispatch workspace e+1",
+	"on-scroll-down": "hyprctl dispatch workspace e-1",
+	"persistent-workspaces": {
+		"1": [],
+		"2": [],
+		"3": [],
+	},
+	"format-icons": {
+		"active": "👁️‍🗨️",
+		"default": "🗨️",
+	},
+},      
+
+"battery": {
+	"align": 0,
+	"rotate": 0,
+	"full-at": 100,
+	"design-capacity": false,
+	"states": {
+		"good": 95,
+		"warning": 30,
+		"critical": 15
+	},
+	"format": "{icon} {capacity}%",
+	"format-charging": " {capacity}%",
+	"format-plugged": "󱘖 {capacity}%",
+	"format-alt-click": "click",
+	"format-full": "{icon} Full",
+	"format-alt": "{icon} {time}",
+	"format-icons": [
+		"󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"
+	],
+	"format-time": "{H}h {M}min",
+	"tooltip": true,
+	"tooltip-format": "{timeTo} {power}w",
+},
+
+"clock": {
+    "interval": 1,
+    "format": " 🕑  {:%H:%M} ",
+    "format-alt": " 🕑  {:%H:%M  🗓️   %Y, %d %B, %A} ",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode"          : "year",
+      "mode-mon-col"  : 3,
+      "weeks-pos"     : "right",
+      "on-scroll"     : 1,
+      "format": {
+      "days":       "<span color='#ebdbb2'><b>{}</b></span>",
+      "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+      "weekdays":   "<span color='#ebdbb2'><b>{}</b></span>",
+      "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                }
+                }
+    },              
+    "actions":  {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+},
+   
+"cpu": {
+    "format": " {usage}% 🧠 ",  
+    "interval": 1,
+    "on-click-right": "gnome-system-monitor"
+},
+         
+"hyprland/window": {
+    "format": " {} ",
+    "max-length": 60,
+    "separate-outputs": true,
+    "offscreen-css" : true,
+    "offscreen-css-text": "(inactive)",
+     "rewrite": {
+          "(.*) — Mozilla Firefox": " $1",
+          "(.*) - fish": "> [$1]",
+          "(.*) - zsh": "> [$1]",
+          "(.*) - kitty": "> [$1]"
+    }
+},
+  
+"memory": {
+    "interval": 10,
+    "format": " {percentage}% 📊 ",
+    "format-alt-click": "click",
+    "tooltip": true,
+    "tooltip-format": "{used:0.1f}GB/{total:0.1f}G",
+    "on-click-right": "kitty -c ~/.config/dotfiles/kitty/kitty.conf --title btop sh -c 'btop'"
+},
+
+"mpris": {
+    "interval": 10,
+	"format": " {title} ",
+	"format-paused": " {title} {status_icon} ",
+	"on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "scroll-step": 5.0,
+    "smooth-scrolling-threshold": 1,
+	"status-icons": {
+		"paused": "󰐎",
+        "playing": "🎶",
+        "stopped": ""
+	},
+	"max-length": 30
+},
+
+      
+"pulseaudio": {
+    "format": " {volume}% {icon} ",
+    "format-bluetooth": " 󰂰 {volume}% {icon} ",
+    "format-muted": "🔇",
+    "format-icons": {
+        "headphone": "🔈",
+        "hands-free": "🔈",
+        "headset": "🔈",
+        "phone": "🔈",
+        "portable": "🔈",
+        "car": "🔈",
+    "default": ["🔈", "🔈", "🔈", "🔈"], 
+    "ignored-sinks": ["Easy Effects Sink"]
+    },
+    "scroll-step": 5.0,
+    "on-click": "pavucontrol -t 3",
+	"tooltip-format": "{icon} {desc} | {volume}%",
+    "smooth-scrolling-threshold": 1
+},
+      
+"temperature": {
+    "interval": 10,
+    "tooltip": true,
+    "hwmon-path": ["/sys/class/hwmon/hwmon1/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
+    "critical-threshold": 82,
+    "format-critical": "{temperatureC}°C {icon}",
+    "format": " {temperatureC}°C {icon} ",
+    "format-icons": ["🔥"],
+    "on-click-right": "kitty -c ~/.config/dotfiles/kitty/kitty.conf --title nvtop sh -c 'nvtop'"
+},
+                    
+"custom/swaync": {
+    "tooltip":true,     
+    "format": " {} {icon} ",
+    "format-icons": {
+      "notification": "🔔<span foreground='red'><sup></sup></span>",
+      "none": "🔔",
+      "dnd-notification": "🔕<span foreground='red'><sup></sup></span>",
+      "dnd-none": "🔕",
+      "inhibited-notification": "🔔<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "🔔",
+      "dnd-inhibited-notification": "🔕<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": "🔕"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+    },
+
+"wlr/taskbar": {
+    "format": " {icon} ",
+    "icon-size": 20,
+    "all-outputs": false,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+
+    "on-click-middle": "close",
+    "ignore-list": [
+          "rofi",
+          "org.mozilla.firefox",
+          "kitty",
+          "jetbrains-studio",
+          "Spotify"
+                   ]
+    },
+}
