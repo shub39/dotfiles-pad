@@ -1,6 +1,6 @@
 * {
   font-family: JetBrainsMonoNerdFontMono;
-  font-size: 24px;
+  font-size: 14px;
   transition-property: background-color;
   transition-duration: 0.7s;
 }
@@ -15,11 +15,11 @@ button {
   background-color: #076678;
   border-style: solid;
   border-width: 3px;
-  border-radius: 50px;
+  border-radius: 20px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 15%;
-  margin: 15px;
+  margin: 10px;
 }
 
 button:active,

@@ -15,8 +15,7 @@
 "modules-left": [
   "hyprland/workspaces",
   "clock",
-	"custom/cava",
-  "mpris"
+  "battery"
 	],
 
 "modules-center": [

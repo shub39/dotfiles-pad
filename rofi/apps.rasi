@@ -1,6 +1,6 @@
 configuration {
     show-icons: true;
-    font: "FreeSans Regular 12";
+    font: "FreeSans Regular 10";
     icon-theme: "Gruvbox-Plus-Dark";
 
     display-ssh:    "󰣀 ssh:";
@@ -10,7 +10,7 @@ configuration {
     display-combi:  "󰕘 combi:";
     display-filebrowser: "󰉋 filebrowser:";
 
-    dpi: 110;
+    dpi: 100;
 }
 
 
