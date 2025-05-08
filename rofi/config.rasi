@@ -1,5 +1,5 @@
 configuration {
-    show-icons: false;
+    show-icons: true;
     font: "JetBrainsMono 12";
     icon-theme: "Gruvbox-Plus-Dark";
 
@@ -12,6 +12,5 @@ configuration {
 
     dpi: 110;
 }
-
 
 @theme "~/.config/dotfiles/rofi/gruvbox-material.rasi"

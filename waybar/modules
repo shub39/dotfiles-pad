@@ -1,55 +1,54 @@
 {
-"hyprland/workspaces": {
-	"active-only": false,
-	"all-outputs": true,
-	"format": "{icon}",
-	"show-special": false,
-	"on-click": "activate",
-	"on-scroll-up": "hyprctl dispatch workspace e+1",
-	"on-scroll-down": "hyprctl dispatch workspace e-1",
-	"persistent-workspaces": {
-		"1": [],
-		"2": [],
-		"3": []
-	},
-	"format-icons": {
-		"active": "👁️‍🗨️",
-		"default": "🗨️",
-	},
-},      
+    "hyprland/workspaces": {
+    "active-only": false,
+    "all-outputs": true,
+    "format": "{icon}",
+    "show-special": false,
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+    },
+    "format-icons": {
+      "active": "[A]",
+      "default": "[ ]"
+    }
+  },
 
-"clock": {
+  "clock": {
     "interval": 1,
-    "format": " 🕑  {:%H:%M} ",
-    "format-alt": " 🕑  {:%H:%M  🗓️   %Y, %d %B, %A} ",
+    "format": " [T] {:%H:%M} ",
+    "format-alt": " [T] {:%H:%M  [D]  %Y, %d %B, %A} ",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
-      "mode"          : "year",
-      "mode-mon-col"  : 3,
-      "weeks-pos"     : "right",
-      "on-scroll"     : 1,
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
       "format": {
-      "days":       "<span color='#ebdbb2'><b>{}</b></span>",
-      "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-      "weekdays":   "<span color='#ebdbb2'><b>{}</b></span>",
-      "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-                }
-                }
-    },              
-    "actions":  {
+        "days": "<span color='#ebdbb2'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ebdbb2'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
       "on-click-right": "mode",
       "on-click-forward": "tz_up",
       "on-click-backward": "tz_down",
       "on-scroll-up": "shift_up",
       "on-scroll-down": "shift_down"
-},
-   
-"cpu": {
-    "format": " {usage}% 🧠 ",  
+    }
+  },
+
+  "cpu": {
+    "format": " {usage}% [CPU] ",
     "interval": 1,
     "on-click-right": "gnome-system-monitor"
-},
-         
+  },
+        
 "hyprland/window": {
     "format": " {} ",
     "max-length": 60,
@@ -88,14 +87,14 @@
 	"tooltip-format": "{timeTo} {power}w",
 },
   
-"memory": {
+  "memory": {
     "interval": 10,
-    "format": " {percentage}% 📊 ",
+    "format": " {percentage}% [RAM] ",
     "format-alt-click": "click",
     "tooltip": true,
     "tooltip-format": "{used:0.1f}GB/{total:0.1f}G",
     "on-click-right": "kitty -c ~/.config/dotfiles/kitty/kitty.conf --title btop sh -c 'btop'"
-},
+  },
 
 "mpris": {
     "interval": 10,
@@ -113,50 +112,53 @@
 	"max-length": 30
 },
 
-      
-"pulseaudio": {
+  "pulseaudio": {
     "format": " {volume}% {icon} ",
-    "format-bluetooth": " 󰂰 {volume}% {icon} ",
-    "format-muted": "🔇",
+    "format-bluetooth": " [BT] {volume}% {icon} ",
+    "format-muted": "[MUTE]",
     "format-icons": {
-        "headphone": "🔈",
-        "hands-free": "🔈",
-        "headset": "🔈",
-        "phone": "🔈",
-        "portable": "🔈",
-        "car": "🔈",
-    "default": ["🔈", "🔈", "🔈", "🔈"], 
-    "ignored-sinks": ["Easy Effects Sink"]
+      "headphone": "[S]",
+      "hands-free": "[S]",
+      "headset": "[S]",
+      "phone": "[S]",
+      "portable": "[S]",
+      "car": "[S]",
+      "default": ["[S]", "[S]", "[S]", "[S]"],
+      "ignored-sinks": ["Easy Effects Sink"]
     },
     "scroll-step": 5.0,
     "on-click": "pavucontrol -t 3",
-	"tooltip-format": "{icon} {desc} | {volume}%",
+    "tooltip-format": "{icon} {desc} | {volume}%",
     "smooth-scrolling-threshold": 1
-},
-      
-"temperature": {
+  },
+
+  "temperature": {
     "interval": 10,
     "tooltip": true,
-    "hwmon-path": ["/sys/class/hwmon/hwmon1/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
+    "hwmon-path": [
+      "/sys/class/hwmon/hwmon1/temp1_input",
+      "/sys/class/thermal/thermal_zone0/temp"
+    ],
     "critical-threshold": 82,
     "format-critical": "{temperatureC}°C {icon}",
     "format": " {temperatureC}°C {icon} ",
-    "format-icons": ["🔥"],
+    "format-icons": ["[T]"],
     "on-click-right": "kitty -c ~/.config/dotfiles/kitty/kitty.conf --title nvtop sh -c 'nvtop'"
-},
-                    
-"custom/swaync": {
-    "tooltip":true,     
+  },
+
+  "custom/swaync": {
+    "tooltip": true,
     "format": " {} {icon} ",
     "format-icons": {
-      "notification": "🔔<span foreground='red'><sup></sup></span>",
-      "none": "🔔",
-      "dnd-notification": "🔕<span foreground='red'><sup></sup></span>",
-      "dnd-none": "🔕",
-      "inhibited-notification": "🔔<span foreground='red'><sup></sup></span>",
-      "inhibited-none": "🔔",
-      "dnd-inhibited-notification": "🔕<span foreground='red'><sup></sup></span>",
-      "dnd-inhibited-none": "🔕"
+      "notification": "[N]<span foreground='red'><sup>+</sup></span>",
+      "none": "[N]",
+      "dnd-notification": "[DND]<span foreground='red'><sup>+</sup></span>",
+      "dnd-none": "[DND]",
+      "inhibited-notification": "[I]<span foreground='red'><sup>+</sup></span>",
+      "inhibited-none": "[I]",
+      "dnd-inhibited-notification":
+        "[DND-I]<span foreground='red'><sup>+</sup></span>",
+      "dnd-inhibited-none": "[DND-I]"
     },
     "return-type": "json",
     "exec-if": "which swaync-client",
@@ -164,7 +166,7 @@
     "on-click": "sleep 0.1 && swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
     "escape": true
-    },
+  },      
 
 "wlr/taskbar": {
     "format": " {icon} ",
